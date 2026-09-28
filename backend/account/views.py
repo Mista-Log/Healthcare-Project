@@ -7,5 +7,5 @@ from django.http import JsonResponse
 def health_check(request):
     return JsonResponse({
         "status": "success",
-        "message": "Account API is running",
+        "message": "Account API is active",
     })
