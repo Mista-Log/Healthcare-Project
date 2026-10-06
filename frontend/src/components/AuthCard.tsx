@@ -9,9 +9,15 @@ export function AuthCard({ title, subtitle, children, footer }: { title: string;
       </svg>
       <div className="glass rise relative w-full max-w-md rounded-2xl p-8">
         <Link to="/" className="flex items-center gap-2.5">
-          <span className="grid size-9 place-items-center rounded-[10px] bg-primary font-mono text-sm text-primary-foreground">Sx</span>
+                  <span className="grid size-9 place-items-center overflow-hidden rounded-[10px]">
+          <img
+            src="/public/logo.png"
+            alt="Logo"
+            className="size-full object-cover"
+          />
+        </span>
           <span>
-            <span className="font-display block text-[17px] leading-none">Sanguine</span>
+            <span className="font-display block text-[17px] leading-none">SyncareX</span>
             <span className="label-mono mt-1 block tracking-[0.2em]">Hospital Cloud</span>
           </span>
         </Link>

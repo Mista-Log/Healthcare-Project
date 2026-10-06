@@ -4,13 +4,13 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { title: "Sanguine — Cloud Hospital Management" },
+      { title: "SyncareX — Cloud Hospital Management" },
       {
         name: "description",
         content:
           "One cloud console for the whole hospital: patients, labs, pharmacy, billing, analytics, blood group registry, doctor home visits and AI patient support.",
       },
-      { property: "og:title", content: "Sanguine — Cloud Hospital Management" },
+      { property: "og:title", content: "SyncareX — Cloud Hospital Management" },
       {
         property: "og:description",
         content:
@@ -94,11 +94,15 @@ function Landing() {
       {/* Nav */}
       <header className="sticky top-0 z-20 border-b border-border bg-white/40 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-6 py-4">
-          <span className="grid size-9 place-items-center rounded-[10px] bg-primary font-mono text-sm text-primary-foreground">
-            Sx
-          </span>
+        <span className="grid size-9 place-items-center overflow-hidden rounded-[10px]">
+          <img
+            src="/public/logo.png"
+            alt="Logo"
+            className="size-full object-cover"
+          />
+        </span>
           <span>
-            <span className="font-display block text-[17px] leading-none">Sanguine</span>
+            <span className="font-display block text-[17px] leading-none">SyncareX</span>
             <span className="label-mono mt-1 block tracking-[0.2em]">Hospital Cloud</span>
           </span>
           <nav className="ml-auto hidden items-center gap-6 text-sm md:flex">
@@ -155,7 +159,7 @@ function Landing() {
               className="rise mt-6 max-w-xl text-base leading-relaxed text-muted-foreground"
               style={{ animationDelay: "160ms" }}
             >
-              Sanguine maps every ward, lab bench, pharmacy shelf and invoice onto a single clinical
+              SyncareX maps every ward, lab bench, pharmacy shelf and invoice onto a single clinical
               console — with an AI companion for patients and doctors who come to their door.
             </p>
             <div className="rise mt-8 flex flex-wrap gap-3" style={{ animationDelay: "240ms" }}>
@@ -330,14 +334,18 @@ function Landing() {
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4 px-6 py-8">
           <span className="flex items-center gap-2.5">
-            <span className="grid size-7 place-items-center rounded-lg bg-primary font-mono text-[11px] text-primary-foreground">
-              Sx
-            </span>
-            <span className="font-display text-sm">Sanguine</span>
+          <span className="grid size-9 place-items-center overflow-hidden rounded-[10px]">
+            <img
+              src="/public/logo.png"
+              alt="Logo"
+              className="size-full object-cover"
+            />
+          </span>
+            <span className="font-display text-sm">SyncareX</span>
           </span>
           <span className="label-mono">Hospital Cloud · Atlas Console</span>
           <span className="ml-auto font-mono text-[10px] text-muted-foreground">
-            © 2026 Sanguine Health Systems
+            © 2026 SyncareX Health Systems
           </span>
         </div>
       </footer>

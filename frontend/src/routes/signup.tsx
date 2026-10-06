@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
-      { title: "Create account — Sanguine Hospital Cloud" },
-      { name: "description", content: "Create a Sanguine account as a doctor, patient or admin." },
-      { property: "og:title", content: "Create account — Sanguine Hospital Cloud" },
-      { property: "og:description", content: "Create a Sanguine account as a doctor, patient or admin." },
+      { title: "Create account — SyncareX Hospital Cloud" },
+      { name: "description", content: "Create a SyncareX account as a doctor, patient or admin." },
+      { property: "og:title", content: "Create account — SyncareX Hospital Cloud" },
+      { property: "og:description", content: "Create a SyncareX account as a doctor, patient or admin." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

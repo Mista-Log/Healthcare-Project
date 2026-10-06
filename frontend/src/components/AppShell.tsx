@@ -33,11 +33,15 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen bg-background text-foreground">
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col gap-6 border-r border-border bg-white/45 p-5 backdrop-blur-xl md:flex">
         <Link to="/" className="flex items-center gap-2.5">
-          <span className="grid size-9 place-items-center rounded-[10px] bg-primary font-mono text-sm text-primary-foreground">
-            Sx
+          <span className="grid size-9 place-items-center overflow-hidden rounded-[10px]">
+            <img
+              src="/public/logo.png"
+              alt="Logo"
+              className="size-full object-cover"
+            />
           </span>
           <span>
-            <span className="font-display block text-[17px] leading-none">Sanguine</span>
+            <span className="font-display block text-[17px] leading-none">SyncareX</span>
             <span className="label-mono mt-1 block tracking-[0.2em]">Atlas Console</span>
           </span>
         </Link>

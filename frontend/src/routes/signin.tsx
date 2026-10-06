@@ -6,10 +6,10 @@ import { signIn, useAuth } from "@/lib/auth";
 export const Route = createFileRoute("/signin")({
   head: () => ({
     meta: [
-      { title: "Sign in — Sanguine Hospital Cloud" },
-      { name: "description", content: "Sign in to the Sanguine hospital console." },
-      { property: "og:title", content: "Sign in — Sanguine Hospital Cloud" },
-      { property: "og:description", content: "Sign in to the Sanguine hospital console." },
+      { title: "Sign in — SyncareX Hospital Cloud" },
+      { name: "description", content: "Sign in to the SyncareX hospital console." },
+      { property: "og:title", content: "Sign in — SyncareX Hospital Cloud" },
+      { property: "og:description", content: "Sign in to the SyncareX hospital console." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
