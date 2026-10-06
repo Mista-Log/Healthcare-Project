@@ -1,5 +1,6 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+import { initials, signOut, useAuth } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 
 const nav = [
@@ -15,6 +16,18 @@ const nav = [
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const user = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user === null) navigate({ to: "/signin", replace: true });
+  }, [user, navigate]);
+
+  if (!user) {
+    return <div className="grid min-h-screen place-items-center bg-background label-mono">Checking session…</div>;
+  }
+  const title = user.role === "doctor" ? `Dr. ${user.name}` : user.name;
+
 
   return (
     <div className="flex min-h-screen bg-background text-foreground">
@@ -66,18 +79,18 @@ export function AppShell({ children }: { children: ReactNode }) {
         </nav>
 
         <div className="mt-auto font-mono text-[10px] leading-relaxed text-muted-foreground">
-          Dr. A. Reyes
+          {title}
           <br />
-          Attending · Ward 4C
+          <span className="capitalize">{user.role}</span> · {user.email}
           <br />
-          <span className="text-primary">● on shift</span>
+          <span className="text-primary">● signed in</span>
         </div>
       </aside>
 
       <main className="min-w-0 flex-1">
         <header className="sticky top-0 z-10 flex items-center gap-4 border-b border-border bg-white/40 px-6 py-4 backdrop-blur-xl md:px-8">
           <div>
-            <div className="font-display text-[15px]">Good morning, Dr. Reyes</div>
+            <div className="font-display text-[15px]">Welcome, {title}</div>
             <div className="label-mono tracking-[0.18em]">Ward 4C · 38 beds · 91% occupancy</div>
           </div>
           <div className="ml-auto flex items-center gap-3">
@@ -85,8 +98,17 @@ export function AppShell({ children }: { children: ReactNode }) {
               ⌕ search patients, labs, rx
             </div>
             <span className="grid size-8 place-items-center rounded-full bg-primary/15 font-mono text-xs text-primary">
-              AR
+              {initials(user.name)}
             </span>
+            <button
+              onClick={() => {
+                signOut();
+                navigate({ to: "/signin", replace: true });
+              }}
+              className="rounded-md border border-border bg-white/50 px-3 py-1.5 text-xs transition-colors hover:bg-white/80"
+            >
+              Sign out
+            </button>
           </div>
         </header>
 

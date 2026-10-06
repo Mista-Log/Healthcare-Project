@@ -112,6 +112,9 @@ function Landing() {
               Home visits
             </a>
           </nav>
+          <Link to="/signin" className="ml-auto text-sm text-foreground/80 transition-colors hover:text-primary md:ml-6">
+            Sign in
+          </Link>
           <Link
             to="/core"
             className="ml-4 inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 md:ml-6"

@@ -18,6 +18,8 @@ import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as LabsRouteImport } from './routes/labs'
 import { Route as PayRouteImport } from './routes/pay'
 import { Route as RxRouteImport } from './routes/rx'
+import { Route as SigninRouteImport } from './routes/signin'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as AssistantIndexRouteImport } from './routes/assistant.index'
 import { Route as AssistantThreadIdRouteImport } from './routes/assistant.$threadId'
 
@@ -66,6 +68,16 @@ const RxRoute = RxRouteImport.update({
   path: '/rx',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SigninRoute = SigninRouteImport.update({
+  id: '/signin',
+  path: '/signin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AssistantIndexRoute = AssistantIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -87,6 +99,8 @@ export interface FileRoutesByFullPath {
   '/labs': typeof LabsRoute
   '/pay': typeof PayRoute
   '/rx': typeof RxRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
   '/assistant/$threadId': typeof AssistantThreadIdRoute
   '/assistant/': typeof AssistantIndexRoute
 }
@@ -99,6 +113,8 @@ export interface FileRoutesByTo {
   '/labs': typeof LabsRoute
   '/pay': typeof PayRoute
   '/rx': typeof RxRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
   '/assistant/$threadId': typeof AssistantThreadIdRoute
   '/assistant': typeof AssistantIndexRoute
 }
@@ -113,6 +129,8 @@ export interface FileRoutesById {
   '/labs': typeof LabsRoute
   '/pay': typeof PayRoute
   '/rx': typeof RxRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
   '/assistant/$threadId': typeof AssistantThreadIdRoute
   '/assistant/': typeof AssistantIndexRoute
 }
@@ -128,6 +146,8 @@ export interface FileRouteTypes {
     | '/labs'
     | '/pay'
     | '/rx'
+    | '/signin'
+    | '/signup'
     | '/assistant/$threadId'
     | '/assistant/'
   fileRoutesByTo: FileRoutesByTo
@@ -140,6 +160,8 @@ export interface FileRouteTypes {
     | '/labs'
     | '/pay'
     | '/rx'
+    | '/signin'
+    | '/signup'
     | '/assistant/$threadId'
     | '/assistant'
   id:
@@ -153,6 +175,8 @@ export interface FileRouteTypes {
     | '/labs'
     | '/pay'
     | '/rx'
+    | '/signin'
+    | '/signup'
     | '/assistant/$threadId'
     | '/assistant/'
   fileRoutesById: FileRoutesById
@@ -167,6 +191,8 @@ export interface RootRouteChildren {
   LabsRoute: typeof LabsRoute
   PayRoute: typeof PayRoute
   RxRoute: typeof RxRoute
+  SigninRoute: typeof SigninRoute
+  SignupRoute: typeof SignupRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -234,6 +260,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RxRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/signin': {
+      id: '/signin'
+      path: '/signin'
+      fullPath: '/signin'
+      preLoaderRoute: typeof SigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/assistant/': {
       id: '/assistant/'
       path: '/'
@@ -275,6 +315,8 @@ const rootRouteChildren: RootRouteChildren = {
   LabsRoute: LabsRoute,
   PayRoute: PayRoute,
   RxRoute: RxRoute,
+  SigninRoute: SigninRoute,
+  SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
