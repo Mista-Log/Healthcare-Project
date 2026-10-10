@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     "account",
+    "payments",
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,11 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+BMONI_BASE_URL = os.getenv(
+    "BMONI_BASE_URL",
+    "https://embedded-dev.bmoni.com",
+)
+
+BMONI_API_KEY = os.getenv("BMONI_API_KEY", "")
+BMONI_WEBHOOK_SECRET = os.getenv("BMONI_WEBHOOK_SECRET", "")
